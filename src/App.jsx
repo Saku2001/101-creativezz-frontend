@@ -8,6 +8,7 @@ import "./App.css";
 
 // ✅ API_URL must be declared after imports
 const API_URL = process.env.REACT_APP_BACKEND_URL;
+console.log("API_URL:", API_URL);
 
 function App() {
   const [uploads, setUploads] = useState([]);
