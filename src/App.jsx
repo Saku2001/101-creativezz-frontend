@@ -1,5 +1,3 @@
-const API_URL = process.env.REACT_APP_BACKEND_URL;
-
 import React, { useRef, useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import HeadlineCard from "./components/HeadlineCard";
@@ -8,13 +6,23 @@ import Feed from "./components/Feed";
 import Lightbox from "./components/Lightbox";
 import "./App.css";
 
+// ✅ API_URL must be declared after imports
+const API_URL = process.env.REACT_APP_BACKEND_URL;
+
 function App() {
   const [uploads, setUploads] = useState([]);
-  const [selectedItem, setSelectedItem] = useState(null); // lift state here
+  const [selectedItem, setSelectedItem] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const feedRef = useRef(null);
 
   useEffect(() => {
+    if (!API_URL) {
+      console.error(
+        "API_URL is undefined! Did you set REACT_APP_BACKEND_URL in Vercel?"
+      );
+      return;
+    }
+
     fetch(`${API_URL}/api/uploads`)
       .then((res) => res.json())
       .then((data) => setUploads(data))
@@ -29,7 +37,6 @@ function App() {
       });
 
       if (!res.ok) throw new Error("Upload failed");
-
       const newUpload = await res.json();
       setUploads((prev) => [newUpload, ...prev]);
     } catch (err) {
@@ -54,7 +61,6 @@ function App() {
 
   const handleSearchChange = (value) => {
     setSearchTerm(value);
-
     if (value.trim() !== "" && feedRef.current) {
       feedRef.current.scrollIntoView({ behavior: "smooth" });
     }
@@ -81,7 +87,6 @@ function App() {
         </div>
       </main>
 
-      {/* Lightbox at top-level */}
       {selectedItem && (
         <Lightbox
           item={selectedItem}
