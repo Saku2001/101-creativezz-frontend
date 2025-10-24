@@ -1,0 +1,25 @@
+.app-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem; /* horizontal padding only */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Headline left-aligned, full viewport height */
+.headline-section {
+  height: calc(100vh - 60px); /* full viewport minus navbar */
+  display: flex;
+  justify-content: flex-start; /* left-align card horizontally */
+  align-items: center;         /* vertically center the card */
+    
+  justify-content: center;      /* space from left edge */
+}
+
+/* Form section below headline */
+.form-section {
+  display: flex;
+  justify-content: center;  /* center form horizontally */
+  margin: 3rem 0;           /* spacing above & below form */
+}
+

@@ -1,0 +1,37 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #000000;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;             /* Reset browser margin */
+  min-width: 320px;
+  min-height: 100vh;
+   /* Keep dark background */
+  display: block;   
+  
+  --s: 43px; /* control the size*/
+  --c1: #000000;
+  --c2: #111313;
+  --c3: #40423e;
+  
+  --p:at 45% 40%,#0000 75%,;
+  --g1:conic-gradient(var(--p) var(--c1) 0);
+  --g2:conic-gradient(var(--p) var(--c2) 0);
+  background:
+    var(--g1),var(--g2) calc(2*var(--s)) 0,
+    var(--g2) calc(3*var(--s)) var(--s),
+    var(--g1) var(--s) var(--s) var(--c3);
+  background-size: calc(4*var(--s)) calc(2*var(--s));
+  /* ✅ Normal block flow, not flex */
+}

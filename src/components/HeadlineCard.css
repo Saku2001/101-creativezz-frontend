@@ -1,0 +1,48 @@
+.headline-card {
+  background: rgba(0, 0, 0, 0.8);
+  max-width: 900px;          /* wider card to fit both items */
+  padding: 1.5rem;
+  position: relative;
+  border-radius: 15px;
+  
+  top: 0;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+}
+
+.headline-content {
+  display: flex;
+  gap: 2rem; /* space between text and carousel */
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.headline-text {
+  font-size: 36px;
+  font-family: "Bricolage Grotesque", sans-serif;
+  color: white;
+  line-height: 1.4;
+}
+
+.first-line {
+  font-size: 50px;
+}
+
+.second-line {
+  font-size: 36px;
+  background: linear-gradient(90deg, rgba(42,123,155,1) 0%, rgba(87,199,133,1) 50%, rgb(112,199,116) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fourth-line {
+  font-size: 50px;
+  background: linear-gradient(90deg, rgba(42,123,155,1) 0%, rgba(87,199,133,1) 50%, rgb(112,199,116) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.headline-carousel {
+  flex-shrink: 0;       /* prevent shrinking */
+  width: 350px;         /* adjust size as needed */
+  height: 300px;        /* adjust height to match text visually */
+}
