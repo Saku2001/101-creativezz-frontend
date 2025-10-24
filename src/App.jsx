@@ -1,3 +1,5 @@
+const API_URL = process.env.REACT_APP_BACKEND_URL;
+
 import React, { useRef, useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import HeadlineCard from "./components/HeadlineCard";
@@ -13,7 +15,7 @@ function App() {
   const feedRef = useRef(null);
 
   useEffect(() => {
-    fetch("https://one01-creativezz-backend.onrender.com/api/uploads")
+    fetch(`${API_URL}/api/uploads`)
       .then((res) => res.json())
       .then((data) => setUploads(data))
       .catch((err) => console.error("Error fetching uploads:", err));
@@ -21,13 +23,10 @@ function App() {
 
   const handleUpload = async (formData) => {
     try {
-      const res = await fetch(
-        "https://one01-creativezz-backend.onrender.com/api/uploads",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      const res = await fetch(`${API_URL}/api/uploads`, {
+        method: "POST",
+        body: formData,
+      });
 
       if (!res.ok) throw new Error("Upload failed");
 
@@ -42,12 +41,9 @@ function App() {
     if (!selectedItem) return;
 
     try {
-      await fetch(
-        `https://one01-creativezz-backend.onrender.com/api/uploads/${selectedItem.id}`,
-        {
-          method: "DELETE",
-        }
-      );
+      await fetch(`${API_URL}/api/uploads/${selectedItem.id}`, {
+        method: "DELETE",
+      });
 
       setUploads((prev) => prev.filter((item) => item.id !== selectedItem.id));
       setSelectedItem(null);
