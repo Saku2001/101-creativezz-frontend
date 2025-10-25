@@ -7,8 +7,8 @@ import Lightbox from "./components/Lightbox";
 import "./App.css";
 
 // ✅ API_URL must be declared after imports
-const API_URL = process.env.REACT_APP_BACKEND_URL;
-console.log("API_URL:", API_URL);
+const API_URL = import.meta.env.VITE_BACKEND_URL;
+console.log("API_URL:", API_URL); 
 
 function App() {
   const [uploads, setUploads] = useState([]);
@@ -19,7 +19,7 @@ function App() {
   useEffect(() => {
     if (!API_URL) {
       console.error(
-        "API_URL is undefined! Did you set REACT_APP_BACKEND_URL in Vercel?"
+        "API_URL is undefined! Did you set VITE_BACKEND_URL in Vercel?"
       );
       return;
     }
